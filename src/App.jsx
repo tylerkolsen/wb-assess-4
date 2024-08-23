@@ -15,6 +15,7 @@ function App() {
     useEffect(() => {
         axios.get('/api/pokemon')
         .then((res) => {
+            console.log(res.data)
             setPokemonData(res.data.pokemon)
         })
     }, [])

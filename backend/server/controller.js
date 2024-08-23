@@ -1,4 +1,4 @@
-import TEST_DATA from "./testData"
+import TEST_DATA from "./testData.js"
 
 const handlerFunctions = {
 

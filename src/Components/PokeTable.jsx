@@ -2,7 +2,7 @@ import React from 'react'
 import TableHeader from './TableHeader'
 import TableRow from './TableRow'
 import AddRowButton from './AddRowButton'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 let globalId = 2
 
@@ -21,6 +21,14 @@ function PokeTable({ initialData }) {
             />
         )
     })
+
+    // We have to add this to get data to display correctly from the server
+    // The initialData will update from App, but only after it has been 
+    // initially rendered. This tells the program to check and update state
+    // whenever it changes
+    useEffect(() => {
+      setCurrentData(initialData)
+    }, [initialData])
 
     // To give our Add Pokemon button the ability to add to 'currentData', we need a function
     const addRow = () => {

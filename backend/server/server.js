@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: false}))
 app.use(express.static('public'))
 app.use(express.json())
 
-import handlerFunctions from './controller'
+import handlerFunctions from './controller.js'
 
 // Routes:
 
