@@ -10,8 +10,9 @@ import axios from 'axios'
 function PokeTable({ initialData }) {
 
     const [currentData, setCurrentData] = useState(initialData)
+    const [rowCheck, setRowCheck] = useState(false)
 
-    // Function to create all of the rows from the database
+       // Function to create all of the rows from the database
     const rows = currentData.map((poke) => {
         return (
             <TableRow 
@@ -30,6 +31,14 @@ function PokeTable({ initialData }) {
     useEffect(() => {
       setCurrentData(initialData)
     }, [initialData])
+
+    useEffect(() => {
+      currentData.length >= 6 ? (
+        setRowCheck(true)
+      ) : (
+        setRowCheck(false)
+      )
+    }, [currentData])
 
     // To give our Add Pokemon button the ability to add to 'currentData', we need a function
     const addRow = () => {
@@ -117,7 +126,7 @@ function PokeTable({ initialData }) {
                 {rows}
             </tbody>
             <tfoot>
-                <AddRowButton addClick={addRow}/>
+                <AddRowButton addClick={addRow} rowCheck={rowCheck}/>
             </tfoot>
         </table>
     </div>

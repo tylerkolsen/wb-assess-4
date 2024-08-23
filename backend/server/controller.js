@@ -1,4 +1,4 @@
-import TEST_DATA from "./testData.js"
+import TEST_DATA from "../../docs/data-mockup.js"
 import apiConvert from "./apiConvert.js"
 
 let data = TEST_DATA
@@ -70,44 +70,6 @@ const handlerFunctions = {
         pokemon.ability = ability
         pokemon.type = type
       
-
-      
-        // pokeName && pokeNum ? (
-        //     alert('Please put in a Pokemon name or number')
-        // ) : (
-    
-        // This ternary statement determines whether pokeName has a value 
-        // assigned. If so, it sends an API request via the name, otherwise
-        // the number. This then builds the empty object pokeData into the correct
-        // syntax to be used in the 'database'
-        // pokeName ? (
-
-            // axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
-            //     .then((res) => {
-            //         pokemon.nickname = nickname
-            //         pokemon.level = level
-            //         pokemon.pokeName = res.data.name
-            //         pokemon.pokeNum = res.data.id
-            //         pokemon.sprite = res.data.sprites
-            //         pokemon.ability = res.data.abilities
-            //         pokemon.type = res.data.types
-            //     })
-        // ) : (
-
-        //     axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeNum}`)
-        //         .then((res) => {
-        //             pokemon.nickname = nickname
-        //             pokemon.level = level
-        //             pokemon.pokeName = res.data.name
-        //             pokemon.pokeNum = res.data.id
-        //             pokemon.sprite = res.data.sprites
-        //             pokemon.ability = res.data.abilities
-        //             pokemon.type = res.data.types
-        //         })
-        // )
-        // )
-
-        // Send it back
         res.send({
             message: 'pokemon updated successfully',
             updatedPokemon: pokemon

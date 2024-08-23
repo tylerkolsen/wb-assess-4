@@ -1,6 +1,6 @@
 import './App.css'
 import PokeTable from './Components/PokeTable'
-import TEST_DATA from '../backend/server/testData'
+import TEST_DATA from '../docs/data-mockup'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
@@ -15,7 +15,6 @@ function App() {
     useEffect(() => {
         axios.get('/api/pokemon')
         .then((res) => {
-            console.log(res.data)
             setPokemonData(res.data.pokemon)
         })
     }, [])

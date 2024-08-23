@@ -1,5 +1,8 @@
 import axios from "axios"
-import TEST_DATA from "./testData.js"
+import TEST_DATA from "../../docs/data-mockup.js"
+
+// This is now superfluous, but I want to keep it in to show my process for
+// figuring out how to get the poke API request to work
 
 // I want to make a call to the pokemon API, and convert data into a form
 // to be used by my app.
