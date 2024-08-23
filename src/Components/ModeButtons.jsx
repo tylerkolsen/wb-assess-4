@@ -1,7 +1,7 @@
 import React from 'react'
 
 // There are two states: delete/change, or save after editing
-function ModeButtons({ isEditing, editClick, saveClick }) {
+function ModeButtons({ isEditing, editClick, saveClick, deleteFunc }) {
 
   return isEditing ? (
     <td>
@@ -9,7 +9,7 @@ function ModeButtons({ isEditing, editClick, saveClick }) {
     </td>
   ) : (
     <td>
-      <button>Delete</button>
+      <button onClick={deleteFunc}>Delete</button>
       <button onClick={editClick}>Change</button>
     </td>
   )
