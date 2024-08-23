@@ -32,31 +32,61 @@ function TableRow({ initialIsEditing, initialPokeData, deleteFunc}) {
       pokeName,
       pokeNum
     }
+    if (pokeName && pokeNum) {
+      alert('Please enter a Pokemon Name or Number')
+    } else {
+      pokeName ? (
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
+        .then((res) => {
+          return axios.put('api/editPokemon', {
+            id: initialPokeData.id,
+            nickname,
+            level,
+            pokeName: res.data.name,
+            pokeNum: res.data.id,
+            sprite: res.data.sprites,
+            ability: res.data.abilities,
+            type: res.data.types,
+          })
+        }).then((res) => {
+          let response = res.data.updatedPokemon
+          setNickname(response.nickname)
+          setLevel(response.level)
+          setPokeName(response.pokeName)
+          setPokeNum(response.pokeNum)
+          setSprite(response.sprite)
+          setAbility(response.ability)
+          setType(response.type)
 
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
-      .then((res) => {
-        return axios.put('api/editPokemon', {
-          id: initialPokeData.id,
-          nickname,
-          level,
-          pokeName: res.data.name,
-          pokeNum: res.data.id,
-          sprite: res.data.sprites,
-          ability: res.data.abilities,
-          type: res.data.types,
+          setEditMode(false)
         })
-      }).then((res) => {
-        let response = res.data.updatedPokemon
-        setNickname(response.nickname)
-        setLevel(response.level)
-        setPokeName(response.pokeName)
-        setPokeNum(response.pokeNum)
-        setSprite(response.sprite)
-        setAbility(response.ability)
-        setType(response.type)
+      ) : (
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeNum}`)
+        .then((res) => {
+          return axios.put('api/editPokemon', {
+            id: initialPokeData.id,
+            nickname,
+            level,
+            pokeName: res.data.name,
+            pokeNum: res.data.id,
+            sprite: res.data.sprites,
+            ability: res.data.abilities,
+            type: res.data.types,
+          })
+        }).then((res) => {
+          let response = res.data.updatedPokemon
+          setNickname(response.nickname)
+          setLevel(response.level)
+          setPokeName(response.pokeName)
+          setPokeNum(response.pokeNum)
+          setSprite(response.sprite)
+          setAbility(response.ability)
+          setType(response.type)
 
-        setEditMode(false)
-      })
+          setEditMode(false)
+        })
+    )}
+   
 
     // axios.put('/api/editPokemon', bodyObj)
     //   .then((res) => {
