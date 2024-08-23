@@ -97,8 +97,14 @@ function PokeTable({ initialData }) {
 
     // Delete function
     const deleteRow = (id) => {
-        const filteredData = currentData.filter((el) => el.id !== id)
-        setCurrentData(filteredData)
+      axios.delete(`api/deletePokemon/${id}`)
+        .then((res) => {
+          setCurrentData(res.data.pokemon)
+        }
+      )
+        // This code is for the old local method of deleting a file
+        // const filteredData = currentData.filter((el) => el.id !== id)
+        // setCurrentData(filteredData)
     }
 
   return (

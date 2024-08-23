@@ -34,7 +34,7 @@ const apiConvert = (nickname, level, pokeName, pokeNum) => {
                 pokeData.type = res.data.types
                 globalId++
                 // I want to add the new data to our 'database' TEST_DATA
-                TEST_DATA.push(pokeData)
+                
 
             }
                 
@@ -52,7 +52,7 @@ const apiConvert = (nickname, level, pokeName, pokeNum) => {
                 pokeData.type = res.data.types
                 globalId++
                 // I want to add the new data to our 'database' TEST_DATA
-                TEST_DATA.push(pokeData)
+               
             }
 
             )

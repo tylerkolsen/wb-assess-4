@@ -30,4 +30,18 @@ app.get('/api/pokemon', handlerFunctions.getPokemon)
 //  - { message: '', newInvoice: {}}
 app.post('/api/addPokemon', handlerFunctions.addPokemon)
 
+// Third endpoint (DELETE):
+// - Delete a specific invoice from TEST_DATA
+// - need 'id' from req.params
+// - '/api/deletePokemon/:id'
+// - { message: '', invoices: []}
+app.delete('/api/deletePokemon/:id', handlerFunctions.deletePokemon)
+
+// Fourth endpoint (PUT):
+// - Update pokemon info from the poke API on a specific pokemon object
+// - Body - needs to follow the same pattern as described in TEST_DATA
+// - '/api/editPokemon'
+// - { message: '', updatedInvoice: {} }
+app.put('/api/editPokemon', handlerFunctions.editPokemon)
+
 ViteExpress.listen(app, 8000, () => console.log("Join us at http://localhost:8000"))

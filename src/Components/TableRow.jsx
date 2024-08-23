@@ -8,7 +8,8 @@ import SpriteCell from './SpriteCell'
 import AbilityCell from './AbilityCell'
 import TypeCell from './TypeCell'
 import { useState } from 'react'
-import apiConvert from '../../backend/server/apiConvert'
+import axios from 'axios'
+
 
 function TableRow({ initialIsEditing, initialPokeData, deleteFunc}) {
   // State variables. I haven't included the last three, as they aren't able to be changed by the user
@@ -17,10 +18,51 @@ function TableRow({ initialIsEditing, initialPokeData, deleteFunc}) {
   const [level, setLevel] = useState(initialPokeData.level)
   const [pokeName, setPokeName] = useState(initialPokeData.pokeName)
   const [pokeNum, setPokeNum] = useState(initialPokeData.pokeNum)
+  const [sprite, setSprite] = useState(initialPokeData.sprite)
+  const [ability, setAbility] = useState(initialPokeData.ability)
+  const [type, setType] = useState(initialPokeData.type)
 
   // Functions to set editMode between true and false
   const changeEditMode = () => setEditMode(true)
-  const changeNormalMode = () => setEditMode(false)
+  const changeNormalMode = () => {
+    const bodyObj = {
+      id: initialPokeData.id,
+      nickname,
+      level,
+      pokeName,
+      pokeNum
+    }
+
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
+      .then((res) => {
+        return axios.put('api/editPokemon', {
+          id: initialPokeData.id,
+          nickname,
+          level,
+          pokeName: res.data.name,
+          pokeNum: res.data.id,
+          sprite: res.data.sprites,
+          ability: res.data.abilities,
+          type: res.data.types,
+        })
+      }).then((res) => {
+        let response = res.data.updatedPokemon
+        setNickname(response.nickname)
+        setLevel(response.level)
+        setPokeName(response.pokeName)
+        setPokeNum(response.pokeNum)
+        setSprite(response.sprite)
+        setAbility(response.ability)
+        setType(response.type)
+
+        setEditMode(false)
+      })
+
+    // axios.put('/api/editPokemon', bodyObj)
+    //   .then((res) => {
+
+    //   })
+  }
 
   return (
     <tr>
@@ -54,15 +96,15 @@ function TableRow({ initialIsEditing, initialPokeData, deleteFunc}) {
       />
       <SpriteCell 
         isEditing={editMode}
-        value={initialPokeData.sprite}
+        value={sprite}
       />
       <AbilityCell 
         isEditing={editMode}
-        value={initialPokeData.ability}
+        value={ability}
       />
       <TypeCell 
         isEditing={editMode}
-        value={initialPokeData.type}
+        value={type}
       />
     </tr>
   )
