@@ -1,11 +1,15 @@
 import React from 'react'
 
-function PokeNameCell() {
-  return (
+function PokeNameCell({ isEditing }) {
+
+  return isEditing ? (
     <td>
-      <div>PokeNameCell</div>
+      <input type="text" />
     </td>
-    
+  ) : (
+    <td>
+      PokeName
+    </td>
   )
 }
 

@@ -1,8 +1,7 @@
 import React from 'react'
 
 // There are two states: delete/change, or save after editing
-function NicknameCell() {
-  const isEditing = false
+function NicknameCell({ isEditing }) {
 
   return isEditing ? (
     <td>

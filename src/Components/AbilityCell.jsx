@@ -1,11 +1,15 @@
 import React from 'react'
 
-function AbilityCell() {
-  return (
-    <td>
-      <div>AbilityCell</div>
-    </td>
+function AbilityCell({ isEditing }) {
 
+  return isEditing ? (
+    <td>
+      Ability{/* placeholder */}
+    </td>
+  ) : (
+    <td>
+      AbilityDis
+    </td>
   )
 }
 
