@@ -1,4 +1,5 @@
 import axios from "axios"
+import TEST_DATA from "./testData.js"
 
 // I want to make a call to the pokemon API, and convert data into a form
 // to be used by my app.
@@ -32,9 +33,8 @@ const apiConvert = (nickname, level, pokeName, pokeNum) => {
                 pokeData.ability = res.data.abilities
                 pokeData.type = res.data.types
                 globalId++
-                console.log(pokeData)
-                // I want to set 'currentData' or whatever equivalent to this
-                // new value
+                // I want to add the new data to our 'database' TEST_DATA
+                TEST_DATA.push(pokeData)
 
             }
                 
@@ -51,9 +51,8 @@ const apiConvert = (nickname, level, pokeName, pokeNum) => {
                 pokeData.ability = res.data.abilities
                 pokeData.type = res.data.types
                 globalId++
-                console.log(pokeData)
-                // I want to set 'currentData' or whatever equivalent to this
-                // new value
+                // I want to add the new data to our 'database' TEST_DATA
+                TEST_DATA.push(pokeData)
             }
 
             )

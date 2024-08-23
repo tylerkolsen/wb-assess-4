@@ -8,7 +8,7 @@ import SpriteCell from './SpriteCell'
 import AbilityCell from './AbilityCell'
 import TypeCell from './TypeCell'
 import { useState } from 'react'
-import apiConvert from './apiConvert'
+import apiConvert from '../../backend/server/apiConvert'
 
 function TableRow({ initialIsEditing, initialPokeData, deleteFunc}) {
   // State variables. I haven't included the last three, as they aren't able to be changed by the user

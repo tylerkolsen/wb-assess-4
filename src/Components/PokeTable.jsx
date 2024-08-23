@@ -3,8 +3,9 @@ import TableHeader from './TableHeader'
 import TableRow from './TableRow'
 import AddRowButton from './AddRowButton'
 import { useState, useEffect } from 'react'
+import axios from 'axios'
 
-let globalId = 2
+// let globalId = 2
 
 function PokeTable({ initialData }) {
 
@@ -34,7 +35,7 @@ function PokeTable({ initialData }) {
     const addRow = () => {
         // create a new object to represent a new "row"
         const newRow = {
-            id: globalId,
+            // id: globalId,
             nickname: '',
             level: 1,
             pokeName: 'larvesta',
@@ -84,8 +85,14 @@ function PokeTable({ initialData }) {
                 }
               ],
         }
-        globalId++
-        setCurrentData([...currentData, newRow])
+        // globalId++
+        // This was the code for updating state beforehand:
+        // setCurrentData([...currentData, newRow])
+        // Now we're sending the request to our server via a POST request
+        axios.post('/api/addPokemon', newRow)
+        .then((res) => {
+          setCurrentData([...currentData, res.data.newPokemon])
+        })
     }
 
     // Delete function
