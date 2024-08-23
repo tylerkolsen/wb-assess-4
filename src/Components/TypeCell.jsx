@@ -1,6 +1,11 @@
 import React from 'react'
 
-function TypeCell({ isEditing }) {
+function TypeCell({ isEditing, value }) {
+  let typeArr = []
+  for (const type of value) {
+    typeArr.push(type.type.name)
+  }
+
 
   return isEditing ? (
     <td>
@@ -8,7 +13,7 @@ function TypeCell({ isEditing }) {
     </td>
   ) : (
     <td>
-      TypeDis
+      {typeArr.join(', ')}
     </td>
   )
 }

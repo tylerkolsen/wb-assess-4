@@ -1,6 +1,11 @@
 import React from 'react'
 
-function AbilityCell({ isEditing }) {
+function AbilityCell({ isEditing, value }) {
+  let abilityArr = []
+  for (const abi of value) {
+    const fixAbi = (abi.ability.name).replace(/-/g, ' ')
+    abilityArr.push(fixAbi)
+  }
 
   return isEditing ? (
     <td>
@@ -8,7 +13,7 @@ function AbilityCell({ isEditing }) {
     </td>
   ) : (
     <td>
-      AbilityDis
+      {abilityArr.join(', ')}
     </td>
   )
 }

@@ -1,14 +1,18 @@
 import React from 'react'
 
-function LevelCell({ isEditing }) {
+function LevelCell({ isEditing, value, onValueChange }) {
 
   return isEditing ? (
     <td>
-      <input type="text" />
+      <input 
+        type="number"
+        value={value}
+        onChange={(e) => onValueChange(e.target.value)}
+      />
     </td>
   ) : (
     <td>
-      Level
+      {value}
     </td>
   )
 }
