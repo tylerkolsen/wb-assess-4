@@ -1,8 +1,18 @@
 import React from 'react'
 
+// There are two states: delete/change, or save after editing
 function ModeButtons() {
-  return (
-    <div>ModeButtons</div>
+  const isEditing = false
+
+  return isEditing ? (
+    <td>
+      <button>Save</button>
+    </td>
+  ) : (
+    <td>
+      <button>Delete</button>
+      <button>Change</button>
+    </td>
   )
 }
 

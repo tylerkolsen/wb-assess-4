@@ -1,8 +1,17 @@
 import React from 'react'
 
+// There are two states: delete/change, or save after editing
 function NicknameCell() {
-  return (
-    <div>NicknameCell</div>
+  const isEditing = false
+
+  return isEditing ? (
+    <td>
+      <input type="text" />
+    </td>
+  ) : (
+    <td>
+      Nickname
+    </td>
   )
 }
 

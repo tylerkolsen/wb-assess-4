@@ -2,7 +2,10 @@ import React from 'react'
 
 function AbilityCell() {
   return (
-    <div>AbilityCell</div>
+    <td>
+      <div>AbilityCell</div>
+    </td>
+
   )
 }
 

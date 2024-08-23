@@ -2,7 +2,10 @@ import React from 'react'
 
 function TypeCell() {
   return (
-    <div>TypeCell</div>
+    <td>
+      <div>TypeCell</div>
+    </td>
+
   )
 }
 

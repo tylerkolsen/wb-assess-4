@@ -2,7 +2,10 @@ import React from 'react'
 
 function SpriteCell() {
   return (
-    <div>SpriteCell</div>
+    <td>
+     <div>SpriteCell</div>
+    </td>
+
   )
 }
 

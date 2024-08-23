@@ -2,7 +2,10 @@ import React from 'react'
 
 function PokeNameCell() {
   return (
-    <div>PokeNameCell</div>
+    <td>
+      <div>PokeNameCell</div>
+    </td>
+    
   )
 }
 

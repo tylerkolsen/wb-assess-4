@@ -2,7 +2,14 @@ import React from 'react'
 
 function AddRowButton() {
   return (
-    <div>AddRowButton</div>
+    <tr>
+      <td></td>{/* Leave blank for formatting purposes */}
+      <td></td>
+      <td colSpan={6}>
+        <button>Add Pokemon</button>
+      </td>
+    </tr>
+    
   )
 }
 

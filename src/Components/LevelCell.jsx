@@ -2,7 +2,10 @@ import React from 'react'
 
 function LevelCell() {
   return (
-    <div>LevelCell</div>
+    <td>
+      <div>LevelCell</div>
+    </td>
+
   )
 }
 
