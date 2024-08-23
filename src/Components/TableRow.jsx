@@ -8,6 +8,7 @@ import SpriteCell from './SpriteCell'
 import AbilityCell from './AbilityCell'
 import TypeCell from './TypeCell'
 import { useState } from 'react'
+import apiConvert from './apiConvert'
 
 function TableRow({ initialIsEditing, initialPokeData, deleteFunc}) {
   // State variables. I haven't included the last three, as they aren't able to be changed by the user
@@ -43,11 +44,13 @@ function TableRow({ initialIsEditing, initialPokeData, deleteFunc}) {
         isEditing={editMode}
         value={pokeName}
         onValueChange={setPokeName}
+        oppositeChange={setPokeNum}
       />
       <PokeNumCell 
         isEditing={editMode}
         value={pokeNum}
         onValueChange={setPokeNum}
+        oppositeChange={setPokeName}
       />
       <SpriteCell 
         isEditing={editMode}

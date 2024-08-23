@@ -1,13 +1,18 @@
 import React from 'react'
 
-function PokeNumCell({ isEditing, value, onValueChange }) {
+function PokeNumCell({ isEditing, value, onValueChange, oppositeChange }) {
+
+  const multiChange = (e) => {
+    onValueChange(e.target.value)
+    oppositeChange('')
+  }
 
   return isEditing ? (
     <td>
       <input 
         type="number" 
         value={value}
-        onChange={(e) => onValueChange(e.target.value)}
+        onChange={(e) => multiChange(e)}
       />
     </td>
   ) : (
