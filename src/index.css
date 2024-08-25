@@ -115,6 +115,10 @@ tfoot td:not(:first-child,:last-child) {
   background-color: red;
 }
 
+select {
+  font-family: "Pokemon Generation 1 Regular";
+  background-color: rgb(0, 151, 151);
+}
 select:hover {
   border-color: aqua;
 }
