@@ -33,7 +33,10 @@ function TableRow({ initialIsEditing, initialPokeData, deleteFunc}) {
       pokeNum
     }
     if (pokeName && pokeNum) {
-      alert('Please enter a Pokemon Name or Number')
+      setNickname(nickname)
+      setLevel(level)
+
+      setEditMode(false)
     } else {
       pokeName ? (
         axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
@@ -59,6 +62,8 @@ function TableRow({ initialIsEditing, initialPokeData, deleteFunc}) {
           setType(response.type)
 
           setEditMode(false)
+        }).catch(() => {
+          alert('An error occurred. Please check your name spelling')
         })
       ) : (
         axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeNum}`)
@@ -84,6 +89,8 @@ function TableRow({ initialIsEditing, initialPokeData, deleteFunc}) {
           setType(response.type)
 
           setEditMode(false)
+        }).catch(() => {
+          alert('An error occurred. Please check your selected number')
         })
     )}
    
@@ -96,6 +103,7 @@ function TableRow({ initialIsEditing, initialPokeData, deleteFunc}) {
 
   return (
     <tr>
+      <td className="frontBorder"></td>
       <ModeButtons 
         isEditing={editMode}
         editClick={changeEditMode}
@@ -136,6 +144,7 @@ function TableRow({ initialIsEditing, initialPokeData, deleteFunc}) {
         isEditing={editMode}
         value={type}
       />
+      <td className="backBorder"></td>
     </tr>
   )
 }

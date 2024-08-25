@@ -1,11 +1,21 @@
+@font-face {
+  font-family:"Pokemon Generation 1 Regular";
+  src:url("../fonts/pokemon_generation_1.eot") format("eot");
+  src:url("../fonts/pokemon_generation_1.woff") format("woff");
+  src:url("../fonts/pokemon_generation_1.ttf") format("truetype");
+  src:url("../fonts/pokemon_generation_1.svg#Pokemon-Generation-1") format("svg");
+  font-weight:normal;
+  font-style:normal;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Pokemon Generation 1 Regular";
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: black;
+  background-color: white;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -53,16 +63,55 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+#addButton {
+  width: 100%;
 }
+
+#titlePic {
+  width: 750px;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: separate;
+  border-radius: 25% 10%;
+  
+}
+
+th,
+td {
+  padding: 0.6em 1.2em;
+}
+
+td {
+  background-color: aqua;
+  color: black;
+}
+
+thead {
+  background-color: red;
+  color: white;
+}
+
+thead th:not(:first-child,:last-child) {
+  border-bottom: 2px solid black;
+}
+
+tfoot td:not(:first-child,:last-child) {
+  border-top: 2px solid black;
+}
+
+.frontBorder {
+  background-color: red;
+  border-right: 2px solid black;
+}
+
+.backBorder {
+  background-color: red;
+  border-left: 2px solid black
+}
+
+.footSelect {
+  background-color: red;
+}
+

@@ -21,7 +21,7 @@ function App() {
 
     return (
     <>
-        <h2>Display your team!</h2>
+        <img id="titlePic" src="https://fontmeme.com/permalink/240825/9c559741a002c6890b61592aba2573dc.png" alt="" />
         <div>
             <PokeTable initialData={pokemonData}/>
         </div>   

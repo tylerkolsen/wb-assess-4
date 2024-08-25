@@ -7,13 +7,20 @@ function AbilityCell({ isEditing, value }) {
     abilityArr.push(fixAbi)
   }
 
+  let abilities = abilityArr.map((abi, idx) => {
+    return <option key={idx} value={abi}>{abi}</option>
+  })
+
   return isEditing ? (
     <td>
       Ability{/* placeholder */}
     </td>
   ) : (
     <td>
-      {abilityArr.join(', ')}
+      <select name="abilitySel" id="abilitySel">
+        {abilities}
+        {/* {abilityArr.join(', ')} */}
+      </select>
     </td>
   )
 }

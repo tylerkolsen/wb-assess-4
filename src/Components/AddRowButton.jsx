@@ -7,13 +7,16 @@ function AddRowButton({ addClick, rowCheck }) {
     </tr>
   ) : (
     <tr>
-      <td></td>{/* Leave blank for formatting purposes */}
-      <td></td>
-      <td colSpan={6}>
+      <td className="footSelect"></td>
+      <td className="footSelect"></td>{/* Leave blank for formatting purposes */}
+      <td className="footSelect"></td>
+      <td colSpan={6} className="footSelect">
         <button 
+          id='addButton'
           onClick={addClick}
         >Add Pokemon</button>
       </td>
+      <td className="footSelect"></td>
     </tr>
   )
 
