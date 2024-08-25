@@ -32,6 +32,10 @@ function TableRow({ initialIsEditing, initialPokeData, deleteFunc}) {
       pokeName,
       pokeNum
     }
+    if (level < 1 || level > 100) {
+      return alert('Please ensure the level is between 1-100')
+    }
+
     if (pokeName && pokeNum) {
       setNickname(nickname)
       setLevel(level)
