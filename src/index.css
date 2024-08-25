@@ -57,12 +57,12 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: aqua;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+button:focus {
+  outline:none,
 }
+
 #addButton {
   width: 100%;
 }
@@ -74,7 +74,7 @@ button:focus-visible {
 table {
   border-spacing: 0;
   border-collapse: separate;
-  border-radius: 25% 10%;
+  border: 2px solid black;
   
 }
 
@@ -113,5 +113,12 @@ tfoot td:not(:first-child,:last-child) {
 
 .footSelect {
   background-color: red;
+}
+
+select:hover {
+  border-color: aqua;
+}
+select:focus {
+  outline: none;
 }
 

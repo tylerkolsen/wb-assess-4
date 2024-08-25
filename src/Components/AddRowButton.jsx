@@ -3,7 +3,9 @@ import React from 'react'
 function AddRowButton({ addClick, rowCheck }) {
   return rowCheck ? (
     <tr>
-      <td colSpan={8}>Nice looking team you've got there!</td>
+      <td className="footSelect"></td>
+      <td colSpan={8} className="footSelect">Nice looking team you've got there!</td>
+      <td className="footSelect"></td>
     </tr>
   ) : (
     <tr>

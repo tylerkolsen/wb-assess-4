@@ -8,7 +8,7 @@ function SpriteCell({ isEditing, value }) {
 
   return isEditing ? (
     <td>
-      <img src="https://www.shutterstock.com/image-vector/pokeball-vector-illustration-flat-art-260nw-2066625617.jpg" width={100} alt="" />
+      <img src="/pokeball-png-45330.png" width={75} alt="" />
     </td>
   ) : ( shinyCheck ? (
       <td>
